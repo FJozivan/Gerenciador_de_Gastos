@@ -172,7 +172,46 @@
 <!-- fim janela modal -->
 
 
+<!-- janela Modal cadastro do Administrador -->
+<div class="modal fade" id="cadAdmin" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Faça o Seu Cadastro</h4>
+      </div>
+      <div class="modal-body">
+        <?php echo form_open('controller/salvarItem') ?>               
+        <div class="col-xs-2 col-lg-2"></div>
+        <div class="col-xs-8 col-lg-8">
+          <div class="form-group">
+            <br>
+            <label for="nome"> Nome:</label>
+            <input class="form-control" name="nome" id="nome" type="text"></input>
+          </div>
 
+          <div class="form-group">
+            <label for="email"></span> E-mail:</label>
+            <input class="form-control" name="email" id="email" type="text"></input>
+          </div>
+
+          <div class="form-group">
+            <label for="senha"></span> Senha:</label>
+            <input class="form-control" name="senha" id="senha" type="text"></input>
+          </div>
+
+        </div>
+        <div class="col-xs-2 col-lg-2"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-check"></span> Cadastrar</button>
+        <button type="button" class="btn btn-danger pull-right" data-dismiss="modal"><span class="glyphicon "></span> Cancelar</button>
+      </div>
+      <?php echo form_close() ?>
+    </div>
+  </div>
+</div>
+
+<!-- fim janela modal -->
 
 
 <!-- janela Modal filtro por data -->

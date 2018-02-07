@@ -23,15 +23,17 @@ class Controller extends CI_Controller {
 		$this->load->model('admin/despesasModel','', TRUE);
 
 		$result['data']  = date('Y-m-d');
-		$fax = date('Y-m-d');
-
-		echo "<script> alert($fax)</script>";
 		$ano= date('Y');
 		$mes = date('m');
 		//echo "<script type=\"text/javascript\">alert('bla');</script>";
 		$Sald['Saldo'] = $this->despesasModel->get_Saldo();
 		$result['dados'] = $this->despesasModel->get_data($mes, $ano);
 		$result['lancamentos'] = $this->despesasModel->get_lancamentos_data($result['data']);
+		//$this->load->view('includes/topo');
+		//$this->load->view('modais');
+		//$this->load->view('login',$result);
+		//$this->load->view('includes/rodape');
+
 		$this->load->view('includes/topo');
 		$this->load->view('includes/menu',$Sald);
 		$this->load->view('modais');
@@ -215,4 +217,15 @@ class Controller extends CI_Controller {
 		redirect("controller/Receitas/0");
 	}
 
+	public function cadAdmin(){
+		$this->load->model('admin/Admin','', TRUE);
+
+		$dados['nomeAdmin'] = $this->input->post('desc');
+		$dados['Email'] = $this->input->post('email');
+		$dados['Senha'] = md5($this->input->post('senha'));
+
+		$this->Admin->insert($dados);
+
+		redirect("controller/Receitas/0");	
+	}
 }
